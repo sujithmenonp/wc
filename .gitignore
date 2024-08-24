@@ -1,0 +1,74 @@
+# IntelliJ IDEA specific files
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Exclude all the build output directories
+out/
+target/
+build/
+
+# User-specific configuration files
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Byte-compiled / package files
+*.class
+*.jar
+*.war
+*.ear
+
+# Log files
+*.log
+
+# Temporary files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+
+# Windows and Linux specific files
+*~
+*.swp
+
+# Java-specific files
+*.ctxt
+.mtj.tmp/
+
+# Gradle specific files
+.gradle/
+build/
+
+# Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# JetBrains Rider
+.idea/
+
+# Eclipse specific files
+.project
+.classpath
+.settings/
+bin/
