@@ -36,29 +36,36 @@ public class FileStatsHelperTest {
 
     @Test
     public void testSize() {
-        long expectedSize = testFile.length();
-        FileStatsHelper.size(testFile);
+        long expectedSize = 70;
         assertEquals(expectedSize, FileStatsHelper.size(testFile), "File size should match the expected value.");
     }
 
     @Test
     public void testLines() {
         int expectedLineCount = 3; // We have 3 lines in the setUp() content
-        FileStatsHelper.lines(testFile);
         assertEquals(expectedLineCount, FileStatsHelper.lines(testFile), "Line count should match the expected value.");
     }
 
     @Test
     public void testWords() {
         int expectedWordCount = 13; // 13 words in the setUp() content
-        FileStatsHelper.words(testFile);
         assertEquals(expectedWordCount, FileStatsHelper.words(testFile), "Word count should match the expected value.");
     }
 
     @Test
     public void testChars() {
         long expectedCharCount = 68; // Count the number of Unicode code points
-        FileStatsHelper.chars(testFile);
         assertEquals(expectedCharCount, FileStatsHelper.chars(testFile), "Character count should match the expected value.");
+    }
+
+    @Test
+    public void testCalculateStats() {
+        long expectedCharCount = 70; // Count the number of Unicode code points
+        long expectedLineCount = 3;
+        long expectedWordCount = 13;
+        long[] counts = FileStatsHelper.calculateStats(testFile);
+        assertEquals(expectedCharCount, counts[0], "Character count should match the expected value.");
+        assertEquals(expectedLineCount, counts[1], "Line count should match the expected value.");
+        assertEquals(expectedWordCount, counts[2], "Word count should match the expected value.");
     }
 }

@@ -60,14 +60,16 @@ public class FileStatsHelper {
         return charCount;
     }
 
-    public static void calculateStats(File file) {
+    public static long[] calculateStats(File file) {
+        long byteCount =0;
+        long[] counts = new long[2];
         try {
             // Read all bytes to get the byte count of the file
-            long byteCount = Files.readAllBytes(Paths.get(file.getPath())).length;
+             byteCount = Files.readAllBytes(Paths.get(file.getPath())).length;
 
             try (Stream<String> lines = Files.lines(Paths.get(file.getPath()), StandardCharsets.UTF_8)) {
                 // Use an array to store counts [lines, words]
-                long[] counts = lines.map(line -> new long[]{
+                counts = lines.map(line -> new long[]{
                         1, // Each line contributes one to the line count
                         Pattern.compile("\\s+").splitAsStream(line.trim()).filter(word -> !word.isEmpty()).count() // Count words in line
                 }).reduce(new long[2], (a, b) -> new long[]{
@@ -81,5 +83,6 @@ public class FileStatsHelper {
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
+        return new long[]{byteCount, counts[0], counts[1]};
     }
 }
