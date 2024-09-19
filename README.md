@@ -12,6 +12,3 @@ The program accepts an optional parameter and the file name and calculates the f
 
 If no option is provided then the byte count , line count and word count is calculated
 
-
-Tests
-<img src="/Users/sujith/Desktop/Screenshot 2024-08-24 at 6.56.59 PM.png"/>
